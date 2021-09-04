@@ -20,7 +20,7 @@
 ** Download the package
 
   #+begin_src sh
-    git clone --depth 1 https://github.com/kweizh/posframe-project-term.git
+    git clone --depth 1 https://github.com/zwpaper/posframe-project-term.git
   #+end_src
 
 ** Enable in Emacs
