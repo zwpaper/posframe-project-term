@@ -1,0 +1,83 @@
+# Created 2021-09-02 Tue 10:41
+#+TITLE: Posframe Project Term
+#+AUTHOR: Wei Zhang
+
+* What is Posframe Project Term?
+
+  Posframe Project Term can pop up a terminal frame in the middle of Emacs
+  based on the buffer project root.
+
+  Currently, the popup terminal is [[https://github.com/akermu/emacs-libvterm][VTerm]],
+  and use [[https://github.com/bbatsov/projectile][Projectile]] to detect the =project-root=,
+  it will use the current directory if no =project-root= found.
+
+  The main advantages are:
+  1. It is fast enough using posframe.
+  2. It is easy switching to the right term for different projects.
+
+* Installation
+
+** Download the package
+
+  #+begin_src sh
+    git clone --depth 1 https://github.com/kweizh/posframe-project-term.git
+  #+end_src
+
+** Enable in Emacs
+
+*** Manual
+
+    #+begin_src elisp
+      (add-to-list 'load-path "DOWNLOADED_PATH")
+      (require 'posframe-project-term)
+    #+end_src
+
+*** Use Package
+
+    bind keys:
+    - =C-c o=: posframe-project-term-toggle
+
+    #+begin_src elisp
+      (use-package posframe-project-term
+        :ensure nil
+        :load-path "DOWNLOADED_PATH"
+        :bind
+        (("C-c t" . posframe-project-term-toggle)))
+    #+end_src
+
+* Usage
+
+** Create a VTerm frame with current project root
+
+   use the keybinding defined above: =C-c t=, or call command:
+
+   #+begin_src elisp
+     (posframe-project-term-toggle)
+   #+end_src
+
+   It will use the current directory if no project root found.
+
+** Kill all created VTerm frame and buffers
+
+   #+begin_src elisp
+     (posframe-project-term-killall)
+   #+end_src
+
+
+* TODO
+
+- [ ] Jump to Posframe Project Term selected from the term list.
+- [ ] Kill selected Posframe Project Term from the term list.
+- [ ] Add configuration for other terms, e.g. =eshell=, [[https://github.com/manateelazycat/aweshell][aweshell]]
+- [ ] Add =project.el= to detect =project-root=
+- [ ] Release on MELPA
+
+* Donate
+
+If you think the it's helpful for you,
+please consider paying a cup of coffee for me. Thank you! 😄
+
+#+html: <p align="left">
+#+html:   <img src="https://raw.githubusercontent.com/zwpaper/zwpaper/master/.github/images/IMG_5240.jpg" alt="wechat" width="200" height="200"/>
+#+html:   <img src="https://raw.githubusercontent.com/zwpaper/zwpaper/master/.github/images/IMG_5241.jpg" alt="alipay" width="200" height="200"/>
+#+html: </p>
