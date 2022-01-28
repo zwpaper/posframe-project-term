@@ -76,8 +76,10 @@ The child frame will use the project root or current directory as default-direct
          :min-height height
          :internal-border-width 3
          :internal-border-color (face-foreground 'font-lock-comment-face nil t)
-         :background-color (face-background 'tooltip nil t)
-         :accept-focus t)))))
+         ;; :background-color (face-background 'tooltip nil t)
+         :accept-focus t)
+        (with-current-buffer ppt-buffer
+          (goto-char (point-max)))))))
 
 (defun posframe-project-term-switch (arg)
   (interactive (list (completing-read "Terms" (buffer-list))))
